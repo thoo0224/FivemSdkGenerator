@@ -41,6 +41,9 @@ public class Application
         Directory.CreateDirectory(dir);
         
         var moduleBuilder = new StringBuilder();
+        if (moduleName.Equals("static"))
+            moduleBuilder.AppendLine("Citizen = {}\n");
+        
         foreach (var function in functions.SelectMany(x =>
                  {
                      var result = new List<NativeFunction>();
